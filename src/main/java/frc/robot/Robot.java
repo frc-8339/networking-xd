@@ -5,6 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import frc.robot.Movement.Net;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -16,6 +17,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
  * project.
  */
 public class Robot extends TimedRobot {
+  private Net netMovement;
 
   /**
    * This function is run when the robot is first started up and should be used
@@ -24,6 +26,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+    netMovement = new Net();
   }
 
   /**
@@ -38,6 +41,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    netMovement.update();
+    System.out.println(netMovement.states);
   }
 
   /**
